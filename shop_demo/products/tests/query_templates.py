@@ -67,6 +67,16 @@ QUERY_PRODUCT = '''
 }
 '''
 
+QUERY_PRODUCT_LITE = '''
+{
+  product(id: "%s") {        
+    id
+    name
+    description    
+  }
+}
+'''
+
 QUERY_MULTIPLE_PRODUCTS_WITH_ALIAS = '''
 {
   %s: product(id: "%s") {

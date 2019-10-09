@@ -13,7 +13,7 @@ from shop_demo.products.models import Product
 
 class ProductType(DjangoObjectType):
     class Meta:
-        # name = 'product'
+        name = Product._meta.model_name
         model = Product
         interfaces = (graphene.relay.Node,)
         # # connection_class = CountableConnectionBase

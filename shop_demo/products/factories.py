@@ -12,5 +12,5 @@ class ProductFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Product
 
-    name = factory.Faker('product')
+    name = factory.Faker('word')
     description = factory.Faker('text')

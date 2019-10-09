@@ -7,7 +7,7 @@
 import graphene
 
 # App imports
-from products.api.django_graphene.queries import ProductQuery
+from shop_demo.products.api.django_graphene.queries import ProductQuery
 
 
 class Query(

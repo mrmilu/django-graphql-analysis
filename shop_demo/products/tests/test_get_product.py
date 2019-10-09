@@ -4,51 +4,26 @@
 # Django imports
 
 # 3rd Party imports
+import pytest
 
 # App imports
-from shop_demo.django_graphql.tests import SchemaTestCaseGQLContext
-from shop_demo.users.factories import UserFactory
+from shop_demo.django_graphql.schema import schema
+from shop_demo.django_graphql.tests import object_global_id
+from shop_demo.products.factories import ProductFactory
+from shop_demo.products.tests.query_templates import QUERY_PRODUCT_LITE
 
 
-class GetProductTest(SchemaTestCaseGQLContext):
-    def test_get_product(self):
-        user = UserFactory()
-        self.client.force_login(user=user)
-        query = '''
-            query {
-              product(id: "%s") {
-                id
-                name                
-                phase {
-                    id
-                    name
-                }
-                resolution
-                consumption
-                deviation
-                userStories{
-                  edges{
-                    node{
-                      id
-                      name
-                    }
-                  }
-                }
-              }
-            }
-        ''' % product_id
-        response = self.client.execute(query)
-        self.assertFalse(response.errors)
-
-        query_data = response.data['product']
-        self.assertTrue(response.data['product'])
-
-        self.assertEqual(query_data['id'], product_id)
-        self.assertEqual(query_data['name'], product.name)
-
-        self.assertEqual(query_data['resolution'], product.resolution)
-        self.assertEqual(query_data['consumption'], product.consumption)
-        self.assertEqual(query_data['deviation'], product.deviation)
-
-        self.assertEqual(query_data['phase']['id'], self.to_global_id(product.phase))
-        self.assertEqual(query_data['phase']['name'], product.phase.name)
+@pytest.mark.django_db
+def test_get_product():
+    product = ProductFactory()
+    query = QUERY_PRODUCT_LITE % object_global_id(product)
+    expected = {
+        "product": {
+            "id": object_global_id(product),
+            "name": product.name,
+            "description": product.description
+        }
+    }
+    result = schema.execute(query)
+    assert not result.errors
+    assert result.data == expected

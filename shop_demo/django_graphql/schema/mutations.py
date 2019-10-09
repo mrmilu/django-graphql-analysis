@@ -7,7 +7,7 @@
 import graphene
 
 # App imports
-from products.api.django_graphene.mutations import ProductMutation
+from shop_demo.products.api.django_graphene.mutations import ProductMutation
 
 
 class Mutation(

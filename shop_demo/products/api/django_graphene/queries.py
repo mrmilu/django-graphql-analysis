@@ -8,7 +8,7 @@ import graphene
 from graphene_django.filter import DjangoFilterConnectionField
 
 # App imports
-from products.api.django_graphene.types import ProductType
+from shop_demo.products.api.django_graphene.types import ProductType
 
 
 class ProductQuery(graphene.ObjectType):

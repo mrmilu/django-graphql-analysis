@@ -6,7 +6,7 @@
 # 3rd Party imports
 
 # App imports
-from products.api.django_graphene.types import ProductType
+from shop_demo.products.api.django_graphene.types import ProductType
 
 TYPES = [
     ProductType

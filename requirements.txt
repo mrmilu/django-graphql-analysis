@@ -1,3 +1,7 @@
+# testing
+pytest
+pytest-django
+
 # Factory boy (https://factoryboy.readthedocs.io/en/latest/)
 factory_boy
 
@@ -13,6 +17,8 @@ graphene
 # Graphene Django (https://docs.graphene-python.org/projects/django/en/latest/)
 graphene-django
 
-
 # Django Filter (https://django-filter.readthedocs.io/en/latest/guide/usage.html#the-filter)
 django-filter
+
+# Graphql extensions (https://github.com/flavors/django-graphql-extensions)
+django-graphql-extensions
