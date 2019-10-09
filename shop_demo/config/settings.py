@@ -39,13 +39,15 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'django_filters',
     'graphene_django',
     'djmoney'
 ]
 
 LOCAL_APPS = [
     'shop_demo.users',
-    'shop_demo.products'
+    'shop_demo.products',
+    'shop_demo.carts',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -81,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'graphql_demos.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -89,7 +91,7 @@ WSGI_APPLICATION = 'graphql_demos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, '../db.sqlite3'),
     }
 }
 
@@ -131,5 +133,5 @@ STATIC_URL = '/static/'
 
 # Graphene
 GRAPHENE = {
-    'SCHEMA': 'shop_demo.graphql.schema'
+    'SCHEMA': 'django_graphql.schema.schema'
 }

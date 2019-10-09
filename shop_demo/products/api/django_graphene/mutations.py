@@ -8,7 +8,7 @@ import graphene
 from graphene_django.rest_framework.mutation import SerializerMutation
 
 # App imports
-from products.api.django_graphene.serializers import ProductSerializer
+from shop_demo.products.api.django_graphene.serializers import ProductSerializer
 
 
 class ProductCreate(SerializerMutation):
@@ -19,4 +19,4 @@ class ProductCreate(SerializerMutation):
 
 
 class ProductMutation(graphene.ObjectType):
-    product_save = ProductCreate.Field()
+    product_create = ProductCreate.Field()

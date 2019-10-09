@@ -7,9 +7,9 @@
 import graphene
 
 # App imports
-from graphql.schema.mutations import Mutation
-from graphql.schema.queries import Query
-from graphql.schema.types import TYPES
+from django_graphql.schema.mutations import Mutation
+from django_graphql.schema.queries import Query
+from django_graphql.schema.types import TYPES
 
 schema = graphene.Schema(
     query=Query,

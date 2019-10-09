@@ -12,5 +12,5 @@ from products.api.django_graphene.types import ProductType
 
 
 class ProductQuery(graphene.ObjectType):
-    get_products = DjangoFilterConnectionField(ProductType)
+    products = DjangoFilterConnectionField(ProductType)
     product = graphene.relay.Node.Field(ProductType)

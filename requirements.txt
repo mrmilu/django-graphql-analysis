@@ -7,5 +7,12 @@ djangorestframework
 # Django money (https://github.com/django-money/django-money)
 django-money
 
+# Graphene (https://docs.graphene-python.org/en/latest/quickstart/)
+graphene
+
 # Graphene Django (https://docs.graphene-python.org/projects/django/en/latest/)
 graphene-django
+
+
+# Django Filter (https://django-filter.readthedocs.io/en/latest/guide/usage.html#the-filter)
+django-filter

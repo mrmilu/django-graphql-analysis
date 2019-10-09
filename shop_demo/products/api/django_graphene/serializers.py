@@ -7,7 +7,7 @@
 from rest_framework import serializers
 
 # App imports
-from products.models import Product
+from shop_demo.products.models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):

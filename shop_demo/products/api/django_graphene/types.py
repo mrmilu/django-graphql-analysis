@@ -4,6 +4,7 @@
 # Django imports
 
 # 3rd Party imports
+import graphene
 from graphene_django import DjangoObjectType
 
 # App imports
@@ -14,7 +15,7 @@ class ProductType(DjangoObjectType):
     class Meta:
         # name = 'product'
         model = Product
-        # interfaces = (graphene.relay.Node,)
+        interfaces = (graphene.relay.Node,)
         # # connection_class = CountableConnectionBase
         # only_fields = [
         #     'id',
@@ -23,7 +24,7 @@ class ProductType(DjangoObjectType):
         #     'name',
         #     'description',
         # ]
-        # filter_fields = [
-        #     'id',
-        #     'name'
-        # ]
+        filter_fields = [
+            'id',
+            'name'
+        ]
