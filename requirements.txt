@@ -1,0 +1,11 @@
+# Factory boy (https://factoryboy.readthedocs.io/en/latest/)
+factory_boy
+
+# Rest framework (https://www.django-rest-framework.org/)
+djangorestframework
+
+# Django money (https://github.com/django-money/django-money)
+django-money
+
+# Graphene Django (https://docs.graphene-python.org/projects/django/en/latest/)
+graphene-django
