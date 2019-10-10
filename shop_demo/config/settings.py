@@ -41,7 +41,8 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'django_filters',
     'graphene_django',
-    'djmoney'
+    'djmoney',
+    # "ariadne.contrib.django",
 ]
 
 LOCAL_APPS = [
@@ -83,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'shop_demo.config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -133,5 +134,5 @@ STATIC_URL = '/static/'
 
 # Graphene
 GRAPHENE = {
-    'SCHEMA': 'django_graphql.schema.schema'
+    'SCHEMA': 'shop_demo.django_graphql.schema.schema'
 }
