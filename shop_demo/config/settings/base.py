@@ -40,9 +40,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'rest_framework',
     'django_filters',
-    'graphene_django',
     'djmoney',
-    # "ariadne.contrib.django",
 ]
 
 LOCAL_APPS = [
@@ -132,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Graphene
-GRAPHENE = {
-    'SCHEMA': 'shop_demo.django_graphql.schema.schema'
-}
+ARIADNE = False
+DJANGO_GRAPHQL = False
+GRAPHENE = False
+STRAWBERRY = False

@@ -1,4 +1,4 @@
-from shop_demo.config.settings import *
+from shop_demo.config.settings.django_graphql import *
 
 DEBUG = True
 

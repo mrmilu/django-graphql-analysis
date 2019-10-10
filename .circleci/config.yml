@@ -44,16 +44,16 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install django==<< parameters.django_version >>
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "setup.py" }}
+#      - save_cache:
+#          paths:
+#            - ./venv
+#          key: v1-dependencies-{{ checksum "setup.py" }}
 
       - run:
           name: Run tests
           command: |
             . venv/bin/activate
-            py.test
+            DJANGO_SETTINGS_MODULE=test_settings/<< parameters.django_version >> pytest
             coveralls
       - store_artifacts:
           path: test-reports

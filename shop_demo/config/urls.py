@@ -13,15 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from graphene_django.views import GraphQLView as DjangoGraphQLView
-from ariadne.contrib.django.views import GraphQLView as AriadneGraphQLView
-
-# from shop_demo.ariadne.schema import ariadne_schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('django-graphql', DjangoGraphQLView.as_view(graphiql=True), name='django-graphql'),
-    path('ariadne', AriadneGraphQLView.as_view(schema=ariadne_schema), name='ariadne'),
 ]
+
+if settings.DJANGO_GRAPHQL:
+    from graphene_django.views import GraphQLView as DjangoGraphQLView
+
+    urlpatterns += [path(settings.GRAPHQL_ENDPOINT, DjangoGraphQLView.as_view(graphiql=True), name='django-graphql')]
+
+if settings.ARIADNE:
+    from ariadne.contrib.django.views import GraphQLView as AriadneGraphQLView
+    from shop_demo.ariadne.schema import ariadne_schema
+
+    urlpatterns += [path(settings.GRAPHQL_ENDPOINT, AriadneGraphQLView.as_view(schema=ariadne_schema), name='ariadne'), ]
