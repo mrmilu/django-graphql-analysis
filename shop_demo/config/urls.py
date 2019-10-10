@@ -23,5 +23,5 @@ from ariadne.contrib.django.views import GraphQLView as AriadneGraphQLView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('django-graphql', DjangoGraphQLView.as_view(graphiql=True), name='django-graphql'),
-    # path('ariadne', AriadneGraphQLView.as_view(schema=ariadne_schema), name='ariadne'),
+    path('ariadne', AriadneGraphQLView.as_view(schema=ariadne_schema), name='ariadne'),
 ]
