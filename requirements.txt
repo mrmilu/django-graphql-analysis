@@ -17,13 +17,11 @@ graphene
 # Graphene Django (https://docs.graphene-python.org/projects/django/en/latest/)
 graphene-django
 
+# Ariadne (https://github.com/mirumee/ariadne)
+ariadne
+
 # Django Filter (https://django-filter.readthedocs.io/en/latest/guide/usage.html#the-filter)
 django-filter
 
 # Graphql extensions (https://github.com/flavors/django-graphql-extensions)
 django-graphql-extensions
-
-# quiz (https://github.com/ariebovenberg/quiz)
-quiz
-
-requests

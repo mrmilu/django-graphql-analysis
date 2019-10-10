@@ -37,26 +37,6 @@ class GetProductsTest(BaseTest):
         assert result.data == self.expected
 
     @pytest.mark.django_db
-    def test_quiz(self):
-        client = RequestsClient()
-        response = client.get('http://testserver/django-graphql')
-        client.headers.update({'X-CSRFToken': response.cookies['csrftoken']})
-
-        result = quiz.execute(self.query, url='http://testserver/django-graphql', client=client)
-        assert result == self.expected
-
-    @pytest.mark.django_db
-    def test_requests(self):
-        client = RequestsClient()
-        response = client.get('http://testserver/django-graphql')
-        csrftoken = response.cookies['csrftoken']
-
-        response = client.post('http://testserver/django-graphql', data={"query": self.query},
-                               headers={'X-CSRFToken': csrftoken})
-        assert response.status_code == 200
-        assert json.loads(response.content)['data'] == self.expected
-
-    @pytest.mark.django_db
     def test_schema_client(self):
         response = self.client.execute(self.query)
         assert response.errors is None

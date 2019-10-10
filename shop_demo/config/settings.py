@@ -41,7 +41,8 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'django_filters',
     'graphene_django',
-    'djmoney'
+    'djmoney',
+    # "ariadne.contrib.django",
 ]
 
 LOCAL_APPS = [

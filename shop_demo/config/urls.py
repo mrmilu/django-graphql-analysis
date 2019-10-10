@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from graphene_django.views import GraphQLView
+from graphene_django.views import GraphQLView as DjangoGraphQLView
+from ariadne.contrib.django.views import GraphQLView as AriadneGraphQLView
+
+# from shop_demo.ariadne.schema import ariadne_schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('django-graphql', GraphQLView.as_view(graphiql=True), name='django-graphql'),
+    path('django-graphql', DjangoGraphQLView.as_view(graphiql=True), name='django-graphql'),
+    # path('ariadne', AriadneGraphQLView.as_view(schema=ariadne_schema), name='ariadne'),
 ]
