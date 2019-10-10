@@ -22,3 +22,8 @@ django-filter
 
 # Graphql extensions (https://github.com/flavors/django-graphql-extensions)
 django-graphql-extensions
+
+# quiz (https://github.com/ariebovenberg/quiz)
+quiz
+
+requests
