@@ -23,3 +23,6 @@ quiz
 
 # requests (https://requests.kennethreitz.org/en/master/)
 requests
+
+# coveralls (https://github.com/coveralls-clients/coveralls-python)
+coveralls
