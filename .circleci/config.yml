@@ -57,7 +57,7 @@ jobs:
           command: |
             . venv/bin/activate
             DJANGO_SETTINGS_MODULE=test_settings.<< parameters.library >> pytest
-            coveralls
+#            coveralls
       - store_artifacts:
           path: test-reports
           destination: test-reports
@@ -117,6 +117,6 @@ workflows:
           library: "ariadne"
       - test-3_6-django2_2-django-graphql:
           django_version: "2.2"
-          library: "django-graphql"
+          library: "django_graphql"
 #      - test-3_6-django1_11:
 #          django_version: "1.11"
