@@ -26,10 +26,10 @@ def resolve_id(obj, info):
 
 
 @product.field("name")
-def resolve_id(obj, info):
+def resolve_name(obj, info):
     return obj.name
 
 
 @product.field("description")
-def resolve_id(obj, info):
+def resolve_description(obj, info):
     return obj.description

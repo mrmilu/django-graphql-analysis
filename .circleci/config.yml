@@ -5,15 +5,18 @@
 version: 2
 
 jobs:
-  test-3_8-django3: &test-template
+  test-3_7-django2_2-ariadne: &test-template
     parameters:
       django_version:
         type: string
-        default: "3"
+        default: "2.2"
+      library:
+        type: string
+        default: "ariadne"
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.8-rc-stretch
+      - image: circleci/python:3.7-stretch
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -28,7 +31,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "setup.py" }}
+            - v1-dependencies-{{ checksum "requirements/<< parameters.library >>.txt" }}
             - v1-dependencies-
 
       - run:
@@ -44,16 +47,16 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install django==<< parameters.django_version >>
-#      - save_cache:
-#          paths:
-#            - ./venv
-#          key: v1-dependencies-{{ checksum "setup.py" }}
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements/<< parameters.library >>.txt" }}
 
       - run:
           name: Run tests
           command: |
             . venv/bin/activate
-            DJANGO_SETTINGS_MODULE=test_settings/<< parameters.django_version >> pytest
+            DJANGO_SETTINGS_MODULE=test_settings/<< parameters.library >> pytest
             coveralls
       - store_artifacts:
           path: test-reports
@@ -67,44 +70,53 @@ jobs:
 #    <<: *test-template
 #    docker:
 #      - image: circleci/python:3.8-rc-stretch
-  test-3_7-django3:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.7-stretch
-  test-3_7-django2_2:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.7-stretch
-  test-3_7-django1_11:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.7-stretch
-  test-3_6-django3:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.6-jessie
-  test-3_6-django2_2:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.6-jessie
-  test-3_6-django1_11:
+#  test-3_7-django3:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.7-stretch
+#  test-3_7-django2_2:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.7-stretch
+#  test-3_7-django1_11:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.7-stretch
+#  test-3_6-django3:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.6-jessie
+  test-3_6-django2_2-ariadne:
     <<: *test-template
     docker:
       - image: circleci/python:3.6-jessie
+  test-3_6-django2_2-django-graphql:
+    <<: *test-template
+    docker:
+      - image: circleci/python:3.6-jessie
+#  test-3_6-django1_11:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.6-jessie
 
 workflows:
   version: 2
   test:
     jobs:
-      - test-3_7-django3:
-          django_version: "3"
-      - test-3_7-django2_2:
+#      - test-3_7-django3:
+#          django_version: "3"
+      - test-3_7-django2_2-ariadne:
           django_version: "2.2"
-      - test-3_7-django1_11:
-          django_version: "1.11"
-      - test-3_6-django3:
-          django_version: "3"
-      - test-3_6-django2_2:
+          library: "ariadne"
+#      - test-3_7-django1_11:
+#          django_version: "1.11"
+#      - test-3_6-django3:
+#          django_version: "3"
+      - test-3_6-django2_2-ariadne:
           django_version: "2.2"
-      - test-3_6-django1_11:
-          django_version: "1.11"
+          library: "ariadne"
+      - test-3_6-django2_2-django-graphql:
+          django_version: "2.2"
+          library: "django-graphql"
+#      - test-3_6-django1_11:
+#          django_version: "1.11"
