@@ -39,7 +39,6 @@ jobs:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -e .[test]
             pip install psycopg2
       - run:
           name: install django version
