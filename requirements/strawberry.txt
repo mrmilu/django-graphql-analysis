@@ -1,4 +1,4 @@
 -r base.txt
 
-# Ariadne (https://github.com/strawberry-graphql/strawberry)
+# Strawberry (https://github.com/strawberry-graphql/strawberry)
 strawberry-graphql

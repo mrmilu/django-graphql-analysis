@@ -32,3 +32,9 @@ if settings.ARIADNE:
     from shop_demo.ariadne.schema import ariadne_schema
 
     urlpatterns += [path(settings.GRAPHQL_ENDPOINT, AriadneGraphQLView.as_view(schema=ariadne_schema), name='ariadne'), ]
+
+if settings.STRAWBERRY:
+    from strawberry.contrib.django.views import GraphQLView as StrawberryGraphQLView
+    from shop_demo.strawberry.schema import strawberry_schema
+
+    urlpatterns += [path(settings.GRAPHQL_ENDPOINT, StrawberryGraphQLView.as_view(schema=strawberry_schema), name='strawberry'), ]
