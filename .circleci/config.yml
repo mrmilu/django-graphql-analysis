@@ -110,14 +110,18 @@ jobs:
     <<: *test-template
     docker:
       - image: circleci/python:3.6-jessie
+  test-3_6-django1_11-ariadne:
+    <<: *test-template
+    docker:
+      - image: circleci/python:3.6-jessie
   test-3_6-django2_2-django-graphql:
     <<: *test-template
     docker:
       - image: circleci/python:3.6-jessie
-#  test-3_6-django1_11:
-#    <<: *test-template
-#    docker:
-#      - image: circleci/python:3.6-jessie
+  test-3_6-django1_11-django-graphql:
+    <<: *test-template
+    docker:
+      - image: circleci/python:3.6-jessie
 
 workflows:
   version: 2
