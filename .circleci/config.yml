@@ -150,8 +150,12 @@ workflows:
       - test-3_6-django2_2-ariadne:
           django_version: "2.2"
           library: "ariadne"
+      - test-3_6-django1_11-ariadne:
+          django_version: "1.11"
+          library: "ariadne"
       - test-3_6-django2_2-django-graphql:
           django_version: "2.2"
           library: "django_graphql"
-#      - test-3_6-django1_11:
-#          django_version: "1.11"
+      - test-3_6-django1_11-django-graphql:
+          django_version: "1.11"
+          library: "django_graphql"
