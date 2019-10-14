@@ -86,26 +86,26 @@ jobs:
 #    <<: *test-template
 #    docker:
 #      - image: circleci/python:3.6-jessie
-  test-3_7-django3-ariadne:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.7-stretch
+#  test-3_7-django3-ariadne:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.7-stretch
   test-3_7-django2_2-django-graphql:
     <<: *test-template
     docker:
       - image: circleci/python:3.7-stretch
-  test-3_7-django3-django-graphql:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.7-stretch
+#  test-3_7-django3-django-graphql:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.7-stretch
   test-3_7-django2_2-strawberry:
     <<: *test-template
     docker:
       - image: circleci/python:3.7-stretch
-  test-3_7-django3-strawberry:
-    <<: *test-template
-    docker:
-      - image: circleci/python:3.7-stretch
+#  test-3_7-django3-strawberry:
+#    <<: *test-template
+#    docker:
+#      - image: circleci/python:3.7-stretch
   test-3_6-django2_2-ariadne:
     <<: *test-template
     docker:
@@ -128,21 +128,21 @@ workflows:
       - test-3_7-django2_2-ariadne:
           django_version: "2.2"
           library: "ariadne"
-      - test-3_7-django3-ariadne:
-          django_version: "3.0a1"
-          library: "ariadne"
+#      - test-3_7-django3-ariadne:
+#          django_version: "3.0a1"
+#          library: "ariadne"
       - test-3_7-django2_2-django-graphql:
           django_version: "2.2"
           library: "django_graphql"
-      - test-3_7-django3-django-graphql:
-          django_version: "3.0a1"
-          library: "django_graphql"
+#      - test-3_7-django3-django-graphql:
+#          django_version: "3.0a1"
+#          library: "django_graphql"
       - test-3_7-django2_2-strawberry:
           django_version: "2.2"
           library: "strawberry"
-      - test-3_7-django3-strawberry:
-          django_version: "3.0a1"
-          library: "strawberry"
+#      - test-3_7-django3-strawberry:
+#          django_version: "3.0a1"
+#          library: "strawberry"
 #      - test-3_7-django1_11:
 #          django_version: "1.11"
 #      - test-3_6-django3:
