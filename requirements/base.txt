@@ -19,7 +19,7 @@ django-filter
 django-graphql-extensions
 
 # quiz (https://github.com/ariebovenberg/quiz)
-quiz
+quiz==0.2.0
 
 # requests (https://requests.kennethreitz.org/en/master/)
 requests
